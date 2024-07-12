@@ -1,11 +1,11 @@
 // src/App.js
 import React from "react";
-import "./App.css";
+import Step1 from "./components/Step1";
 
 const App = () => {
   return (
     <div className="App min-h-screen flex items-center justify-center bg-gray-100">
-      App
+      <Step1 />
     </div>
   );
 };

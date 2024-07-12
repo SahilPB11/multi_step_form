@@ -12,7 +12,8 @@ const Step1 = ({ nextStep, handleChange, formData }) => {
 
   const onSubmit = (data) => {
     debouncedHandleChange(data);
-    nextStep();s
+    nextStep();
+    s;
   };
 
   return (
