@@ -24,7 +24,7 @@ const Step1 = ({ nextStep, handleChange, formData }) => {
           {...register("name", { required: "Name is required" })}
           className="w-full p-2 border"
         />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        {errors?.name && <p className="text-red-500">{errors?.name?.message}</p>}
       </div>
       <div>
         <label>Email</label>
@@ -35,7 +35,7 @@ const Step1 = ({ nextStep, handleChange, formData }) => {
           })}
           className="w-full p-2 border"
         />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+        {errors?.email && <p className="text-red-500">{errors?.email?.message}</p>}
       </div>
       <div>
         <label>Phone</label>
@@ -43,7 +43,7 @@ const Step1 = ({ nextStep, handleChange, formData }) => {
           {...register("phone", { required: "Phone is required" })}
           className="w-full p-2 border"
         />
-        {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
+        {errors?.phone && <p className="text-red-500">{errors?.phone?.message}</p>}
       </div>
       <button type="submit" className="px-4 py-2 bg-blue-500 text-white">
         Next
