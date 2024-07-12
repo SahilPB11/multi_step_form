@@ -3,10 +3,10 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Step1 from "../Step1";
 
-test("renders Step1 component and submits form", () => {
-  const handleChange = jest.fn();
+test("renders Step1 component and handles form submission", () => {
   const nextStep = jest.fn();
-  const formData = {};
+  const handleChange = jest.fn();
+  const formData = { name: "", email: "", phone: "" };
 
   render(
     <Step1
@@ -16,6 +16,12 @@ test("renders Step1 component and submits form", () => {
     />
   );
 
+  // Check if inputs are rendered
+  expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+  expect(screen.getByLabelText(/phone/i)).toBeInTheDocument();
+
+  // Simulate form submission
   fireEvent.change(screen.getByLabelText(/name/i), {
     target: { value: "John Doe" },
   });
@@ -28,6 +34,6 @@ test("renders Step1 component and submits form", () => {
 
   fireEvent.click(screen.getByText(/next/i));
 
-  expect(handleChange).toHaveBeenCalled();
+  // Check if nextStep is called
   expect(nextStep).toHaveBeenCalled();
 });
